@@ -7,6 +7,13 @@ module.exports = {
   devServer: {
     watchFiles: ["src/**/*"],
   },
+  module: {
+    rules: [{
+        test: /\.(scss|css)$/i,
+        include: path.resolve(__dirname, "src"),
+        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+      },],
+  },
   resolve: {
     extensions: [".js", ".html"],
   },
