@@ -5,7 +5,7 @@ const profile = document.getElementById("profile");
 
 searchBtn.addEventListener("click", (e) => {
   const octokit = new Octokit({
-    auth: "",
+    auth: "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",
     userAgent: "myApp v1.2.3",
     baseUrl: "https://api.github.com",
     previews: ["jean-grey", "symmetra"],
@@ -46,26 +46,28 @@ function showProfile(res) {
   profile.classList.add("visible");
   profile.innerHTML = `
           <div class="grid grid-cols-6 grid-flow-row">
-            <div  class="row-span-3 col-span-2"> <img class="ring object-contain h-48 w-48" src="${
+            <div class="lg:row-span-3 col-span-6 lg:pr-10 lg:col-span-2"> <img class="ring w-full " src="${
               res.owner.avatar_url
             }" alt=""></div>
-            <div class="col-span-1">
-              <div class=" flex items-center justify-center rounded-xl h-10  w-40 shadow-xs bg-gradient-to-r from-green-400 to-blue-500"> Stars  ${
-                res.stargazers_count
-              }</div>
+            <div class="property-container">
+              <div class="property"> Stars  ${res.stargazers_count}</div>
             </div>
-            <div class="col-span-1">
-            <div class="flex items-center justify-center rounded-xl h-10  w-40 shadow-xs bg-gradient-to-r from-green-400 to-blue-500"> Forks ${
-              res.forks_count
-            } </div>
+            <div class="property-container">
+            <div class="property"> Forks ${res.forks_count} </div>
            </div>
-          <div class="col-span-1">
-          <div class="flex items-center justify-center rounded-xl h-10  w-40 shadow-xs bg-gradient-to-r from-green-400 to-blue-500"> Populor  ${
-            res.stargazers_count * 1 + res.forks_count * 2 >= 500 ? "👍🏻" : "👎🏻"
-          } </div>
-          </div>
-            <div class="col-span-4">Name: ${res.owner.login}</div>
-            <div class="col-span-4">Repository: ${res.name}</div>
+           <div class="property-container">
+            <div class="property"> Populor  ${
+                res.stargazers_count * 1 + res.forks_count * 2 >= 500
+                ? " 👍🏻"
+                : " 👎🏻"
+            } </div>
+            </div>
+           <div class="name pb-20 lg:pb-0">Owner: ${
+              res.owner.login
+            }</div>
+            <div class="name">Repository: ${
+              res.name
+            }</div>
           </div>
           `;
 }
@@ -77,7 +79,7 @@ function clearProfile() {
 function showAlert(msg, cls) {
   profile.classList.remove("invisible");
   profile.classList.add("visible");
-  profile.innerHTML = `<div class="flex justify-center items-center rounded-md bg-red-300 h-10 w-full">${msg}</div>`;
+  profile.innerHTML = `<div class="flex-center text-font rounded-md bg-red-300 h-20 lg:h-10 w-full">${msg}</div>`;
 }
 
 function validateInputFields(owner, repo) {

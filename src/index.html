@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   </head>
   <body>
-    <div class="flex h-20 pl-40 mb-10 text-xl text-white items-center w-full bg-blue-500">
+    <div
+      class="flex h-32 lg:h-20 pl-10 lg:pl-40 mb-10 text-4xl lg:text-3xl text-white items-center w-full bg-blue-500"
+    >
       GitHub Finder
     </div>
-    <div class="flex flex-col mx-40 border rounded-md p-10 border-gray-300">
-      <div class="pb-10 text-lg underline">Search GitHub Repositories</div>
+    <div class="box">
+      <div class="pb-10 text-4xl lg:text-2xl">Search GitHub Repository</div>
       <input
         type="text"
         name=""
         id="searchUser"
-        class="mt-1 block w-full rounded-md border-gray-300 px-3 py-3 shadow-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        class="text-input"
         placeholder="GitHub owner..."
       />
       <br />
@@ -22,24 +24,16 @@
         type="text"
         name=""
         id="searchRepo"
-        class="mt-1 block w-full rounded-md border-gray-300 px-3 py-3 shadow-md focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        class="text-input"
         placeholder="GitHub Repository..."
       />
       <br />
-      <p id="errorMessage" class="text-red-500" hidden></p>
-      <button
-        id="searchBtn"
-        class="bg-blue-500 w-full py-2 text-grey-center rounded-md hover:bg-blue-600 text-white transition-colors"
-      >
-        Search
-      </button>
+      <p id="errorMessage" class="text-red-500 text-font py-3" hidden></p>
+      <button id="searchBtn" class="search-button">Search</button>
     </div>
-    <div
-      id="profile"
-      class="invisible flex flex-col mx-40 border rounded-md p-10 border-gray-300"
-      ></div>
-    <footer class="text-center mt-5 p-3 bg-light">GitHub Finder &copy;</footer>
+    <div id="profile" class="invisible box"></div>
   </body>
+  
   <script type="module" src="repoDetails.js"></script>
   <script src="bundle.js"></script>
 </html>
