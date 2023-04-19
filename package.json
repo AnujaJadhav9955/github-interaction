@@ -4,23 +4,44 @@
   "description": "",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "webpack serve --mode=development --open",
-    "build": "webpack"
+    "build": "webpack",
+    "clear_jest": "jest --clearCache"
   },
-  "author": "",
+  "jest": {
+    "testEnvironment": "node",
+    "modulePaths": [
+      "<rootDir>",
+      "/src/"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ]
+  },
+  "author": "AnujaJadhav",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
     "autoprefixer": "^10.4.14",
+    "babel-jest": "^29.5.0",
+    "jest": "^29.5.0",
+    "jquery": "^3.6.4",
+    "memfs": "^3.5.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.1",
     "webpack": "^5.79.0",
     "webpack-cli": "^5.0.1"
   },
   "dependencies": {
+    "@octokit/rest": "^19.0.7",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "node-fetch": "3.3.1",
+    "octokit": "^2.0.14",
     "postcss-loader": "^7.2.4",
     "postcss-preset-env": "^8.3.1",
     "sass": "^1.62.0",
